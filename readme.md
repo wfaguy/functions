@@ -26,59 +26,95 @@ addHourOffset(22,5) => 3
 
 Add a padded number, optionally give a placeholder
 
-Example
-* name : volume
-* number : 2
-* padding : 3
+``` java
+def addOrReplacePadNumber(name,placeholder,num,padlen)
+{
+     if(name.contains(placeholder)){
+        return name.replaceFirst(placeholder,padNumber(num,padlen))
+     }else{
+        return name + padNumber(num,padlen);
+     }
+}
+ 
+Examples are :
 
-```
-result : volume002
-```
-
-Example
-* name : volume#_root
-* number : 2
-* padding : 3
-* placeholder : #
-
-```
-result : volume002_root
+addOrReplacePadNumber("myvolume","###",1,3)    => myvolume001
+addOrReplacePadNumber("my###volume","###",1,3) => my001volume
+addOrReplacePadNumber("myvolume001","001",2,3) => myvolume002
 ```
 
 ## getCharAt
 
 Grab a character from a string at a certain position (start at 0)
 
-Example
-* text : abcdef
-* position : 2
+``` java
+def getCharAt(sText, num)
+{
+   return sText.substring(num,num+1)
+}
 
-```
-result : c
+Example :
+
+getCharAt("abcdef",2) => "c"
 ```
 
 ## getNumberSuffix
 
-Gets the number at the end of a string
+Get the number at the end of a string
 
-Example
-* text : volume013
+``` java
+def getNumberSuffix(str)
+{
+     int len = str.length();
+     char c="";
+     String s="";
+     while(len>0){
+         c = str[len-1];
+         if("0123456789".contains(c+"")){
+             s=c+s;
+         }else{
+             return s;
+         }
+         len--;
+     }
+     return s;
+}
 
-```
-result : 13
+Example :
+
+getNumberSuffix("volume001") => "001"
 ```
 	
 ## incrementIpPart
 
-Increments a part of an ip address 
+Increment a part of an ip address 
 
-Example
-* ip : 192.168.0.1
-* part : 3
-* increment : 50
+``` java
+def incrementIpPart(ip,part, increment)
+{
+    int p1 = (int)splitByDelimiter(ip,"\\.",0);
+    int p2 = (int)splitByDelimiter(ip,"\\.",1);
+    int p3 = (int)splitByDelimiter(ip,"\\.",2);
+    int p4 = (int)splitByDelimiter(ip,"\\.",3);
+     
+    if(part==1){
+       p1+=increment;
+    }else if(part==2){
+       p2+=increment;
+    }else if(part==3){
+       p3+=increment;
+    }else if(part==4){
+       p4+=increment;
+    }
+    if(p1>255 || p2>255 || p3>255 || p4>255){
+       throwException("Ip overflow")
+    }
+    return (p1 + "." + p2 + "." + p3 + "." + p4);
+}
 
-```
-	result : 192.168.50.1
+Example :
+
+incrementIpPart("192.168.0.1", 3, 50) => "192.168.50.1"
 ```
 		
 ## inString
@@ -97,62 +133,132 @@ Example
 
 Check if a node number is odd, assuming it has a number at the end
 
-Example
-* name : cluster03
+``` java
+def isNodeOdd(sText)
+{
+   String s = "";
+   int i = 0;
+   s = sText.substring(sText.length()-2,sText.length());
+   i = (Integer.parseInt(s)%2);
+   return (i==1);
+}
 
-```
-	result : true
+Example
+
+isNodeOdd("cluster03") => true
 ```
 		
 ## randomNumber
 
 Generate a random integer with a min & max
 
-Example
-* min : 1
-* max : 20
-
-```
-	result : 13 (or any other number from 1 to 20)
+``` java
+def randomNumber(minimum, maximum)
+{
+ 
+  if(maximum > minimum)
+    return Math.round((maximum-minimum)*Math.random() + minimum);
+  else
+    throwException("maximum should be larger than minimum");     
+ 
+}
 ```
 
 ## replaceAll
 
 Replace a piece of string in another string
 
-Example
-* text : wfaguy is cooler than cool
-* find : cool
-* replace : awesome
-
-```
-	result : wfaguy is awesomer than awesome
+``` java
+def replaceAll(name,str,new_str)
+{
+   return name.replace(str,(String)new_str);
+}
 ```
 
 ## round
 
 Round a number to an integer
 
-Example
-* number : 3.95
-
-```
-	result : 4
+``` java
+def round(o)
+{
+   return java.lang.Math.round(o);
+}
 ```
 	
 ## stripLastXChars
 
 Strip the last x characters from a string
 
-Example
-* text : volume
-* strip : 3
-
+``` java
+def stripLastXChars(sText, num) 
+{ 
+   return sText.substring(0, sText.length() - num)
+}
 ```
-	result : vol
+
+## getLastXChars
+
+Get the last x characters from a string
+
+``` java
+def getLastXChars(sText, num)
+{
+   int len = sText.length();
+   if(num>=len)return sText;
+   return sText.substring(len-num,len);
+}
 ```
 
+## getFirstXChars
 
+Get the first x characters from a string
+
+``` java
+def getFirstXChars(sText, num)
+{
+   int len = sText.length();
+   if(num>=len)return sText;
+   return sText.substring(0,num);
+}
+```
+
+## getXChars
+
+Get x characters from a string
+
+``` java
+def getXChars(sText,from, num)
+{
+   int len = sText.length();
+   if(num==0){
+      num=len;
+   }
+   int end = num+from-1;
+   if(from<0){
+     throwException("from must be >=0 (starting at 0)");
+   }
+   if(end>len){
+     end=len;
+   }
+   return sText.substring(from,end);
+}
+```
+
+## getSubstringAt
+
+Get a string in a string by given position, length and direction
+
+``` java
+def getSubstringAt(str,position,len,direction)
+{
+   if(direction=='rtl'){
+     position = str.length()-position -len
+   }
+     String search = str.substring(position,position+len);
+     return search;
+}
+```
 
 	
 
