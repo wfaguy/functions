@@ -4,7 +4,7 @@
 
 Give an hour and add an offset
 
-```
+``` java
 def addHourOffset(hour,offset) 
 {
     int starthour = (int)hour;
