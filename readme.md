@@ -4,12 +4,21 @@
 
 Give an hour and add an offset
 
-Example
-* Hour : 22
-* Offset : 5
-
 ```
-	result : 3
+def addHourOffset(hour,offset) 
+{
+    int starthour = (int)hour;
+    int houroffset = (int)offset;
+    if((starthour+houroffset)>23){
+        return (starthour+houroffset-24)
+    }else{
+        return (starthour+houroffset)
+    }
+}
+
+Example :
+
+addHourOffset(22,5) => 3
 ```	
 
 
@@ -23,7 +32,7 @@ Example
 * padding : 3
 
 ```
-	result : volume002
+result : volume002
 ```
 
 Example
@@ -33,7 +42,7 @@ Example
 * placeholder : #
 
 ```
-	result : volume002_root
+result : volume002_root
 ```
 
 ## getCharAt
@@ -45,7 +54,7 @@ Example
 * position : 2
 
 ```
-	result : c
+result : c
 ```
 
 ## getNumberSuffix
@@ -56,7 +65,7 @@ Example
 * text : volume013
 
 ```
-	result : 13
+result : 13
 ```
 	
 ## incrementIpPart
