@@ -7,7 +7,10 @@ Give an hour and say and offset
 Example
 * Hour : 22
 * Offset : 5
-	* **result** :  3
+
+```
+	result : 3
+```	
 
 
 ## addOrReplacePadNumber
@@ -18,14 +21,20 @@ Example
 * name : volume
 * number : 2
 * padding : 3
-	* **result** :  volume002
+
+```
+	result : volume002
+```
 
 Example
 * name : volume#_root
 * number : 2
 * padding : 3
 * placeholder : #
-	* **result** :  volume002_root
+
+```
+	result : volume002_root
+```
 
 ## getCharAt
 
@@ -34,7 +43,10 @@ Grabs a char a certain position (start at 0)
 Example
 * text : abcdef
 * position : 2
-	* **result** :  c
+
+```
+	result : c
+```
 
 ## getNumberSuffix
 
@@ -42,7 +54,10 @@ Gets the number at the end
 
 Example
 * text : volume013
-	* **result** :  13
+
+```
+	result : 13
+```
 	
 ## incrementIpPart
 
@@ -52,7 +67,10 @@ Example
 * ip : 192.168.0.1
 * part : 3
 * increment : 50
-	* **result** :  192.168.50.1
+
+```
+	result : 192.168.50.1
+```
 		
 ## inString
 
@@ -61,7 +79,10 @@ is a string in another string
 Example
 * text : hellothere
 * find : ello
-	* **result** :  true
+
+```
+	result : true
+```
 		
 ## isNodeOdd
 
@@ -69,7 +90,10 @@ check if node number is odd, assuming it has a number at the end
 
 Example
 * name : cluster03
-	* **result** :  true
+
+```
+	result : true
+```
 		
 ## randomNumber
 
@@ -78,7 +102,10 @@ generate a random integer with a min & max
 Example
 * min : 1
 * max : 20
-	* **result** :  13 (or any other number from 1 to 20)
+
+```
+	result : 13 (or any other number from 1 to 20)
+```
 
 ## replaceAll
 
@@ -88,7 +115,10 @@ Example
 * text : wfaguy is cooler than cool
 * find : cool
 * replace : awesome
-	* **result** :  wfaguy is awesomer than awesome
+
+```
+	result : wfaguy is awesomer than awesome
+```
 
 ## round
 
@@ -96,7 +126,10 @@ rounds a number
 
 Example
 * number : 3.95
-	* **result** :  4
+
+```
+	result : 4
+```
 	
 ## stripLastXChars
 
@@ -105,7 +138,10 @@ strips that last x chars from a string
 Example
 * text : volume
 * strip : 3
-	* **result** :  vol
+
+```
+	result : vol
+```
 
 
 
