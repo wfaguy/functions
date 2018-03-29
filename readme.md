@@ -2,7 +2,7 @@
 
 ## addHourOffset
 
-Give an hour and say and offset
+Give an hour and add an offset
 
 Example
 * Hour : 22
@@ -38,7 +38,7 @@ Example
 
 ## getCharAt
 
-Grabs a char a certain position (start at 0)
+Grab a character from a string at a certain position (start at 0)
 
 Example
 * text : abcdef
@@ -50,7 +50,7 @@ Example
 
 ## getNumberSuffix
 
-Gets the number at the end
+Gets the number at the end of a string
 
 Example
 * text : volume013
@@ -61,7 +61,7 @@ Example
 	
 ## incrementIpPart
 
-increments a part of an ip address
+Increments a part of an ip address 
 
 Example
 * ip : 192.168.0.1
@@ -74,7 +74,7 @@ Example
 		
 ## inString
 
-is a string in another string
+Check if a string is found in another string
 
 Example
 * text : hellothere
@@ -86,7 +86,7 @@ Example
 		
 ## isNodeOdd
 
-check if node number is odd, assuming it has a number at the end
+Check if a node number is odd, assuming it has a number at the end
 
 Example
 * name : cluster03
@@ -97,7 +97,7 @@ Example
 		
 ## randomNumber
 
-generate a random integer with a min & max
+Generate a random integer with a min & max
 
 Example
 * min : 1
@@ -109,7 +109,7 @@ Example
 
 ## replaceAll
 
-replaces all text in text
+Replace a piece of string in another string
 
 Example
 * text : wfaguy is cooler than cool
@@ -122,7 +122,7 @@ Example
 
 ## round
 
-rounds a number
+Round a number to an integer
 
 Example
 * number : 3.95
@@ -133,7 +133,7 @@ Example
 	
 ## stripLastXChars
 
-strips that last x chars from a string
+Strip the last x characters from a string
 
 Example
 * text : volume
