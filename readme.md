@@ -260,6 +260,19 @@ def getSubstringAt(str,position,len,direction)
 }
 ```
 
+## createUuid
+
+Create a UUID (Universally Unique IDentifier)
+
+``` java
+def createUuid(uuid){
+   import java.util.UUID;
+   // Create a random UUID (Universally unique identifier).
+   uuid = UUID.randomUUID();
+   String[]randomUUIDString = uuid.toString();
+   return randomUUIDString;
+}
+```
 	
 
 	
