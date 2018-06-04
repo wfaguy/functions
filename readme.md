@@ -274,6 +274,79 @@ def createUuid(uuid){
 }
 ```
 	
+## trimEnd
 
+Trims a string at the end with a provided suffix
+
+``` java
+def trimEnd(text,suffix) 
+{	
+	java.util.regex.Pattern RESOLVE_PATTERN = java.util.regex.Pattern.compile("^(.*)" + suffix + "$");
+        	java.util.regex.Matcher matcher1 = RESOLVE_PATTERN.matcher(text);
+        	if (matcher1.matches()) 
+	{
+	            	return matcher1.group(1);
+        	} else {
+
+		return text;
+	}
+}
+```
 	
+## getRegexMatch
+
+Finds a regex match, and returns a certain match number.
+
+``` java
+def getRegexMatch(text,regex,match) 
+{	
+	java.util.regex.Pattern RESOLVE_PATTERN = java.util.regex.Pattern.compile(regex);
+        	java.util.regex.Matcher matcher1 = RESOLVE_PATTERN.matcher(text);
+        	if (matcher1.matches()) 
+	{
+	            	return matcher1.group(match);
+        	} else {
+		return text;
+	}
+}
+```
+
+## getLastNumber
+
+Searches a number at the back of a string and returns it as an integer.
+This is basically the same as getLastNumberSuffix, with Integer.parseInt()
+
+``` java
+def getLastNumber(str)
+{
+     int len = str.length();
+     char c="";
+     String s="";
+     while(len>0){
+         c = str[len-1];
+         if("0123456789".contains(c+"")){
+             s=c+s;
+         }else{
+             return Integer.parseInt(s);
+         }
+         len--;
+     }
+     return Integer.parseInt(s);
+}
+```
+
+## getLastNumberWithSuffix
+
+Returns the number in a string which is suffixed.
+example :
+getLastNumberWithSuffix("volume034storage","storage") 
+	=> 34
+
+Has dependencies with trimEnd & getLastNumber
+
+``` java
+def getLastNumberWithSuffix(text,suffix){
+	return getLastNumber(trimEnd(text,suffix));
+}
+```
 
