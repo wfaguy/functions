@@ -309,6 +309,14 @@ def getRegexMatch(text,regex,match)
 		return text;
 	}
 }
+
+Examples
+
+getRegexMatch("mynode-01","^.*[^0-9]([0-9]*)$",1) ==> "01"
+getRegexMatch("svm_d1_myshare","^svm_([a-z][0-9])_.*$",1) ==> "d1"
+
+infact, this function can replace many (if not any) other text search functions.
+
 ```
 
 ## getLastNumber
